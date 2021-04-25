@@ -99,8 +99,8 @@ app.get('/home',(req,res)=>{
   app.post('/Add',(req,res)=>{
     console.log(res.body);
     var v=req.body.name;var n=-1
-    var na=v.toUpperCase();
-    var obj={name:req.body.name,Genre:req.body.genre,no_of_seasons:req.body.nos,author:req.body.author,ongoing_or_completed:req.body.oc}
+    
+    var obj={name:req.body.name,Genre:req.body.genre,no_of_seasons:req.body.nos,author:req.body.author,ongoing_or_completed:req.body.uoc}
     console.log(v+ req.body.author);
     db.collection("Anime_list").find({name:{ $regex: new RegExp("^" + v.toLowerCase(), "i") }}, { projection: { _id: 0, name: 1 } }).toArray(function(err, result) {
       if (err) throw err;
@@ -108,7 +108,7 @@ app.get('/home',(req,res)=>{
       
      if(n!=0){
        // res.render('popup.html');
-        res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD/views' + '/popup.html')
+        res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD_n/crud/views' + '/popup.html')
       }
       else{
         db.collection('Anime_list').insertOne(obj, function(err, res) {
@@ -142,7 +142,7 @@ app.post('/update',(req,res)=>{
   db.collection("Anime_list").find({name:{ $regex: new RegExp("^" + na.toLowerCase(), "i") }},{projection: {_id: 0,name:1}}).toArray(function(err,result){
     if(err) throw err;
         if(result.length==0)    
-          res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD/views' + '/popup_create.html')
+          res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD_n/crudviews' + '/popup_create.html')
         else{
             if(ep=="" && aut=="")
               obj={$set:{ongoing_or_completed:req.body.uoc}}
@@ -186,6 +186,9 @@ app.post('/update',(req,res)=>{
 app.post('/delete',(req,res)=>{
   console.log(req.body.uname);
   db.collection('Anime_list').findOneAndDelete({name:{ $regex: new RegExp("^" + req.body.uname, "i") }},(err,result)=>{
+    console.log(result.length)
+    if(result.length==0)
+    res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD_n/crudviews' + '/popup_delete.html')
     if(err)
       return console.log(err)
       console.log("doc deleted")
