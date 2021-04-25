@@ -186,13 +186,15 @@ app.post('/update',(req,res)=>{
 app.post('/delete',(req,res)=>{
   console.log(req.body.uname);
   db.collection('Anime_list').findOneAndDelete({name:{ $regex: new RegExp("^" + req.body.uname, "i") }},(err,result)=>{
-    console.log(result.length)
-    if(result.length==0)
-    res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD_n/crudviews' + '/popup_delete.html')
+    console.log(result.value==null)
     if(err)
       return console.log(err)
+    if(result.value==null)
+      res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD_n/crud/views' + '/popup_delete.html')
+    else{
       console.log("doc deleted")
       res.redirect('/')
+    }
       //res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD/views' + '/popup_delete.html')
   })
 })
