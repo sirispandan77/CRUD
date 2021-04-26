@@ -140,10 +140,14 @@ app.post('/update',(req,res)=>{
   var obj;
   console.log(na+" "+ep+" "+oc);
   db.collection("Anime_list").find({name:{ $regex: new RegExp("^" + na.toLowerCase(), "i") }},{projection: {_id: 0,name:1}}).toArray(function(err,result){
+    console.log(result.length==0)
     if(err) throw err;
-        if(result.length==0)    
-          res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD_n/crudviews' + '/popup_create.html')
+        if(result.length==0) {   
+          console.log("sending");
+          res.sendFile('E:/drive d/SIRISPANDANA/microprojects/CRUD_n/crud/views' + '/popup_create.html')
+        }
         else{
+          console.log("else");
             if(ep=="" && aut=="")
               obj={$set:{ongoing_or_completed:req.body.uoc}}
             else if(oc=="" && aut=="")
