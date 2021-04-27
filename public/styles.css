@@ -17,13 +17,15 @@ th{
     color:white;
 }
 tr:nth-child(even){
-    background-color: #02ac9b; 
-    color:white;
-    background-color: #FF2E63;
-  
+    
+    color:rgb(17, 16, 16);
+   /* background-color: #FF2E63;
+    background-color: #dd0a35;
+    background-color:  #b5092c;
+    background-color: #014955;*/
 }
 tr:nth-child(odd){
     background-color: rgb(217, 197, 235);
-    background-color: #EAEAEA;
-    background-color:#7AC7C4;
+    color: black;
 }
+/*bg-color="#08D9D6;*/
