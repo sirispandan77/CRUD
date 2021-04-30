@@ -97,7 +97,7 @@ app.get('/home',(req,res)=>{
 
   //on clicking submit in create 
   app.post('/Add',(req,res)=>{
-    console.log(res.body);
+    //console.log(req.body.ongoing_or_completed+ "gggg");
     var v=req.body.name;var n=-1
     
     var obj={name:req.body.name,Genre:req.body.genre,no_of_seasons:req.body.nos,author:req.body.author,ongoing_or_completed:req.body.uoc}
