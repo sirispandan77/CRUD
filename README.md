@@ -17,3 +17,6 @@ There's a home page to display data from DB followed by update and delete pages 
 #### Pop-ups
 ![image](https://user-images.githubusercontent.com/63141056/120078413-1c445100-c0cd-11eb-85cb-b178ef7ab3fa.png)
 ![image](https://user-images.githubusercontent.com/63141056/120078454-3c741000-c0cd-11eb-84a5-a6f374624cb6.png)
+
+#### DataBase
+![image](https://user-images.githubusercontent.com/63141056/120078592-c9b76480-c0cd-11eb-913b-5dd163e0da09.png)
