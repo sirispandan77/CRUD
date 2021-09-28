@@ -1,4 +1,6 @@
 # crud
+crusd stand sfor create, read, update and delete. all these operations are performed on the databases. in this project mongoDB is used and adminLTE for frontend styling which consists of bootstrap commands and EJS pages are used for dynamic loading purpose.
+EJS stands for embedded javascript, it helps make the pages responsive and and add dynamic nature to the pages.
 crud using adminLTE
 There's a home page to display data from DB followed by update and delete pages to delete data from DB.
 
